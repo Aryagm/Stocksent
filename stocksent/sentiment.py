@@ -79,15 +79,15 @@ class Sentiment:
 
         """
         df = get_sentiment_data(self.ticker)
+        scores = df['headline'].apply(vader.polarity_scores).tolist()
+        scores_df = pd.DataFrame(scores)
+        scores_df.columns = ['Negative', 'Neutral', 'Positive', 'Overall']
+        df = df.join(scores_df, rsuffix='_right')
         if days is not None:
             now = datetime.now().date()
             day_neg = pd.to_timedelta(days, unit='d')
             oldest_date = now - day_neg
             df = df[df['date'] >= oldest_date]
-        scores = df['headline'].apply(vader.polarity_scores).tolist()
-        scores_df = pd.DataFrame(scores)
-        scores_df.columns = ['Negative', 'Neutral', 'Positive', 'Overall']
-        df = df.join(scores_df, rsuffix='_right')
 
         plt.rcParams['figure.figsize'] = [10, 6]
 
