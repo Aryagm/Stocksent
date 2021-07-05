@@ -39,5 +39,5 @@ setup(
     packages=["stocksent"],
     include_package_data=True,
     install_requires=["numpy", "matplotlib",
-                      "pandas", "nltk", "wordcloud", "bs4"]
+                      "pandas", "nltk", "wordcloud", "bs4", "myst-parser"]
 )
