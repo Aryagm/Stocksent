@@ -121,3 +121,10 @@ Version 2.0](https://www.mozilla.org/en-US/MPL/2.0/)
 **Arya Manjaramkar**
 
 <a href="https://www.linkedin.com/in/arya-manjaramkar" target="blank"><img align="center" src="https://img.shields.io/badge/Arya Manjaramkar-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>  &nbsp;&nbsp;&nbsp;       <a href="https://www.github.com/Aryagm" target="blank"><img align="center" src="https://img.shields.io/badge/Aryagm-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
+
+<br/>
+
+### Disclaimer
+<i>
+The material in this repository is purely for educational purposes and should not be taken as professional investment advice. Invest at your own discretion.
+</i>
