@@ -3,7 +3,7 @@ import nltk
 import numpy as np
 import pandas as pd
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from pandas import datetime
+from datetime import datetime
 from wordcloud import WordCloud
 
 from stocksent.get_sentiment_data import get_sentiment_data
