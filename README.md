@@ -4,7 +4,7 @@
 <a href="https://github.com/Aryagm/Stocksent" target="blank"><img align="center" src="https://img.shields.io/badge/Stocksent-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Aryagm/Stocksent/main/logo.png" alt="logo" width="100"/>
+<img src="https://raw.githubusercontent.com/Aryagm/Stocksent/master/logo.png" alt="logo" width="100"/>
 </p>
 
 Stocksent is a Python library for sentiment analysis of various tickers from the latest news from trusted sources. It also has options for plotting results.
@@ -84,7 +84,7 @@ from stocksent import Sentiment
 stocks = Sentiment(['AAPL','TSLA','GOOG'])
 stocks.plot(save_figure=True)
 ```
-<img src="https://raw.githubusercontent.com/Aryagm/Stocksent/main/plot.png" alt="plot" width=450/>
+<img src="https://raw.githubusercontent.com/Aryagm/Stocksent/master/plot.png" alt="plot" width=450/>
 
 <br />
 <br />
@@ -96,7 +96,7 @@ from stocksent import Sentiment
 stocks = Sentiment(['AAPL','AMZN','GOOG','TSLA'])
 stocks.word_cloud(days=5) #Create a word cloud from news from the past 5 days.
 ```
-<img src="https://raw.githubusercontent.com/Aryagm/Stocksent/main/word_cloud.png" alt="word cloud" width=450/>
+<img src="https://raw.githubusercontent.com/Aryagm/Stocksent/master/word_cloud.png" alt="word cloud" width=450/>
 
 <br />
 <br />
