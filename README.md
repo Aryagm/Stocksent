@@ -11,7 +11,7 @@ Stocksent is a Python library for sentiment analysis of various tickers from the
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install stocksent.
+Use the package manager [pip](https://pypi.org/project/stocksent/) to install stocksent.
 
 ```bash
 pip install stocksent
