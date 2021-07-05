@@ -1,0 +1,16 @@
+language: python
+python:
+  - 3.6
+
+install:
+  - pip install -r requirements.txt
+  
+script:
+  - python -m unittest tests/sentiment_tests.py
+
+deploy:
+  provider: pypi
+  username: "__token__"
+  password: "$PYPI_TOKEN"
+  on:
+    branch: main
