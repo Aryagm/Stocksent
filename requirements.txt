@@ -5,3 +5,4 @@ pandas
 bs4
 beautifulsoup4
 wordcloud
+myst-parser
