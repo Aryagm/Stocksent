@@ -101,6 +101,11 @@ stocks.word_cloud(days=5) #Create a word cloud from news from the past 5 days.
 <br />
 <br />
 
+## Docs
+Read the docs here: [https://stocksent.readthedocs.io](https://stocksent.readthedocs.io) !
+<br />
+<br />
+
 ## Contributing
 Pull requests are welcome on [GitHub](https://github.com/Aryagm/Stocksent) !
 
