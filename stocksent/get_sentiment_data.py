@@ -59,78 +59,40 @@ def get_sentiment_data(tickers):
         raise InvalidDataType(tickers)
 
     if type(tickers) == str:
-        tickers = tickers.upper()
-        if tickers not in stock_list:
+        tickers  = [tickers]
+    tickers = [x.upper() for x in tickers]
+    for x in tickers:
+        if x not in stock_list:
             raise TickerNotFound(tickers)
-        else:
-            news_tables = {}
-            url = web_url + tickers
-            req = Request(url=url, headers={"User-Agent": "FireFox"})
-            response = urlopen(req)
-            html = BeautifulSoup(response, "html.parser")
-            news_table = html.find(id='news-table')
-            news_tables[tickers] = news_table
-            news_list = []
+    news_tables = {}
+    for tick in tickers:
+        url = web_url + tick
+        req = Request(url=url, headers={"User-Agent": "FireFox"})
+        response = urlopen(req)
+        html = BeautifulSoup(response, "html.parser")
+        news_table = html.find(id='news-table')
+        news_tables[tick] = news_table
+    news_list = []
 
-            for file_name, news_table in news_tables.items():
-                for i in news_table.findAll('tr'):
+    for file_name, news_table in news_tables.items():
+        for i in news_table.findAll('tr'):
 
-                    text = i.a.get_text()
+            text = i.a.get_text()
 
-                    date_scrape = i.td.text.split()
+            date_scrape = i.td.text.split()
+            source = i.div.span.get_text()
 
-                    source = i.div.span.get_text()
+            if len(date_scrape) == 1:
+                time = date_scrape[0]
 
-                    if len(date_scrape) == 1:
-                        time = date_scrape[0]
+            else:
+                date = date_scrape[0]
+                time = date_scrape[1]
 
-                    else:
-                        date = date_scrape[0]
-                        time = date_scrape[1]
+            tick = file_name.split('_')[0]
 
-                    tick = file_name.split('_')[0]
-
-                    news_list.append([tick, date, time, source, text])
-            columns = ['ticker', 'date', 'time', 'source', 'headline']
-            news_df = pd.DataFrame(news_list, columns=columns)
-            news_df['date'] = pd.to_datetime(news_df.date).dt.date
-
-            return news_df
-
-    if type(tickers) == list:
-        tickers = [x.upper() for x in tickers]
-        for x in tickers:
-            if x not in stock_list:
-                raise TickerNotFound(tickers)
-        news_tables = {}
-        for tick in tickers:
-            url = web_url + tick
-            req = Request(url=url, headers={"User-Agent": "FireFox"})
-            response = urlopen(req)
-            html = BeautifulSoup(response, "html.parser")
-            news_table = html.find(id='news-table')
-            news_tables[tick] = news_table
-        news_list = []
-
-        for file_name, news_table in news_tables.items():
-            for i in news_table.findAll('tr'):
-
-                text = i.a.get_text()
-
-                date_scrape = i.td.text.split()
-                source = i.div.span.get_text()
-
-                if len(date_scrape) == 1:
-                    time = date_scrape[0]
-
-                else:
-                    date = date_scrape[0]
-                    time = date_scrape[1]
-
-                tick = file_name.split('_')[0]
-
-                news_list.append([tick, date, time, source, text])
-        columns = ['ticker', 'date', 'time', 'source', 'headline']
-        news_df = pd.DataFrame(news_list, columns=columns)
-        news_df['date'] = pd.to_datetime(news_df.date).dt.date
-        return news_df
+            news_list.append([tick, date, time, source, text])
+    columns = ['ticker', 'date', 'time', 'source', 'headline']
+    news_df = pd.DataFrame(news_list, columns=columns)
+    news_df['date'] = pd.to_datetime(news_df.date).dt.date
+    return news_df
