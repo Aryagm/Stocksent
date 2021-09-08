@@ -1,7 +1,11 @@
 
 # Stocksent
 
-<a href="https://github.com/Aryagm/Stocksent" target="blank"><img align="center" src="https://img.shields.io/badge/Stocksent-100000?style=for-the-badge&logo=github&logoColor=white" /></a>
+<a href="https://github.com/Aryagm/Stocksent" target="blank"><img align="center" src="https://img.shields.io/badge/Stocksent-100000?logo=github&logoColor=white" />
+<a href="https://pepy.tech/project/stocksent" target="blank"><img align="center" src="https://static.pepy.tech/personalized-badge/stocksent?style=for-the-badge&period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads" />
+</a>
+</a>
+
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/Aryagm/Stocksent/master/logo.png" alt="logo" width="100"/>
