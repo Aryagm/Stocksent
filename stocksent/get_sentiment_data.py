@@ -77,10 +77,17 @@ def get_sentiment_data(tickers):
     for file_name, news_table in news_tables.items():
         for i in news_table.findAll('tr'):
 
-            text = i.a.get_text()
+            try:
+                text = i.a.get_text() if i else "No Description"
+            except AttributeError as e:
+                pass
 
             date_scrape = i.td.text.split()
-            source = i.div.span.get_text()
+            
+            try:
+                source = i.div.span.get_text()
+            except AttributeError as e:
+                pass
 
             if len(date_scrape) == 1:
                 time = date_scrape[0]
