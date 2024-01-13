@@ -76,13 +76,22 @@ def get_sentiment_data(tickers):
     news_list = []
 
     for file_name, news_table in news_tables.items():
+
     # Initialize current_date with None
     current_date = None
 
     for i in news_table.findAll('tr'):
-        text = i.a.get_text()
+        try:
+            text = i.a.get_text() if i else "No Description"
+        except AttributeError as e:
+            pass
+          
         date_scrape = i.td.text.split()
-        source = i.div.span.get_text()
+        
+        try:
+            source = i.div.span.get_text()
+        except AttributeError as e:
+            pass
 
         if len(date_scrape) == 1:
             # If only time is present, use the last known date
